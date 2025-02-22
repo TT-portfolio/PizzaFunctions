@@ -21,6 +21,8 @@ public static class GetOrders
         ILogger log)
     {
         log.LogInformation("Fetching orders from Cosmos DB via Key Vault.");
+        log.LogInformation($"Key Vault URI: {KeyVaultUri}");
+
 
         // Hämta Cosmos DB Connection String från Key Vault
         var client = new SecretClient(new Uri(KeyVaultUri), new DefaultAzureCredential());
@@ -48,5 +50,3 @@ public static class GetOrders
         }
     }
 }
-
-//test
