@@ -21,6 +21,7 @@ public static class GetOrders
         ILogger log)
     {
         log.LogInformation("Fetching orders from Cosmos DB via Key Vault.");
+        log.LogInformation($"KeyVaultName: {KeyVaultName}");
         log.LogInformation($"Key Vault URI: {KeyVaultUri}");
 
 
