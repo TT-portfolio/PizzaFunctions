@@ -32,6 +32,13 @@ jobs:
           dotnet build --configuration Release --output ./output
           popd
 
+      - name: 'Set FUNCTIONS_WORKER_RUNTIME to dotnet'
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az functionapp config appsettings set --name PizzaloverFunctions --resource-group YOUR_RESOURCE_GROUP --settings FUNCTIONS_WORKER_RUNTIME=dotnet
+
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
